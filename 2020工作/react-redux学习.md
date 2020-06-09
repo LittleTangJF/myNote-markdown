@@ -31,3 +31,12 @@ export default (state = defaultState, action) => {
 ### react-thunk中间件[安装](npm install --save redux-thunk)
 
 ​	简介	使用 `thunk` 等中间件可以帮助在 Redux 应用中实现异步性
+
+​	原理    dispatch会同步执行reducer生成新的状态，所以异步操作得使用中间件处理
+
+
+
+### react-redux
+
+1. Provider
+2. Connect

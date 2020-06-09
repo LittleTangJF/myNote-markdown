@@ -2,7 +2,7 @@
 
 简介：
 
-### componentDidMount()组件加载完成：请求axios数据
+### componentDidMount()组件加载完成：请求axios数据，组件传值接受
 
 ### componentWillReceiveProps()将要接受父props
 
