@@ -19,7 +19,9 @@
 ### GitAPI
 
 1. git log =>打印日志
-2. git status =>查看状态
+2. git status =>查看状态，例如修改东西可以查看到
 3. git branch  dev = >新建分支dev
 4. git checkout dev => 去dev  (git checkout -b dev)（3、4）步骤的简写
+5. git merge dev => 合并dev 分支到当前
+6. git branch -d dev => 删除dev 分支
 
