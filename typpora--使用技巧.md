@@ -1,4 +1,5 @@
-- 学习网址 （https://www.bilibili.com/video/BV1ka4y1E7WB?from=search&seid=443178594493652740）
+#### 学习网址 （https://www.bilibili.com/video/BV1ka4y1E7WB?from=search&seid=443178594493652740）
+
 - 无序列表  shift + ctrl+ }
 
 1. 有序列表  shift + ctrl + {
@@ -14,4 +15,10 @@
 ```
 
 `重点`
+
+****
+
+#### 导出思维导图   https://www.bilibili.com/video/BV1Vp4y1q7vD?from=search&seid=1474599684940143596
+
+软件： 幕布
 
