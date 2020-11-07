@@ -2,7 +2,15 @@
 
 ```
 git reset --hard 版本号
+git reset --hard origin/master 回退本地跟远程master
 ```
+
+#### 删除分支
+
+> - git push origin --delete dev 删除远程
+> - git branch -d dev 删除本地   git branch -D 可以删除没有合并到master上的分支
+> - git remote show origin 获取远程信息，查看不同步
+> - git remote prune origin  同步远程的分支到本地
 
 #### 强制推送
 
@@ -20,23 +28,13 @@ git push -f -u origin maste
 5. git push origin master =>推送到origin master分支
 ```
 
-#### 二次提交
+#### Git常用
 
 ```
-1. git add .
-2. git commit -m 'second'
-3. git push origin master
-```
-
-#### GitAPI
-
-```
-1. git log =>打印日志
-2. git status =>查看状态，例如修改东西可以查看到
-3. git branch  dev = >新建分支dev
-4. git checkout dev => 去dev  (git checkout -b dev)（3、4）步骤的简写
-5. git merge dev => 合并dev 分支到当前
-6. git branch -d dev => 删除dev 分支
+1. git log =>打印日志 git 					log --stat简要日志
+4. git checkout -b dev 					 新建分支
+5. git merge dev => 					合并dev 分支到当前
+5. git commit --amend  					对最新的一条commit进行修正
 ```
 
 
