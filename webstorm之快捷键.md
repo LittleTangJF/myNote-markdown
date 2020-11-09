@@ -1,0 +1,2 @@
+- Alt  +  shift   +    G    多行编辑
+- Alt  +   F12   终端

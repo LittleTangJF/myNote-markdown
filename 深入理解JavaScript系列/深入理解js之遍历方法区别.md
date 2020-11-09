@@ -42,3 +42,13 @@
 
 > - 参数(arrayStr, arrayStr, ...,arrayStr) 
 > - 返回值（**新数组、字符串**）
+
+#### for  in (适合对象)-key
+
+> - 特点：*for in遍历的是数组的索引（即键名）index
+> - 会遍历所有的可枚举属性，包括原型上的key
+> - 上条会出现当有原型上的key也会遍历出来，所以可以用for...of + Object.keys() 代替
+
+#### for  of (不能用于对象)-value
+
+> - 特点：没有部署原生的 iterator 接口，直接使用 for...of 会报错
