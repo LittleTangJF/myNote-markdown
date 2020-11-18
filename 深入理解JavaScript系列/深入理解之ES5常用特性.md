@@ -23,4 +23,7 @@
 #### 4.函数----function
 
 > - Function.prototype.bind(obj)
-> - bind()与call()和apply()的区别
+> - **bind()与call()和apply()的区别**
+>   -   call:   ...params
+>   - apply:  params[]
+
