@@ -1,7 +1,9 @@
-#### 1.增加json对象
+#### 1.对象
 
 - JSON.stringify(obj/arr);
 - JSON.parse(json);
+- 删除属性(delete)
+- getter\setter
 
 #### 2.拓展了数组方法
 
@@ -18,8 +20,6 @@
 > Array.lastIndexOf(value)   同上，只是从最后开始检索
 > ```
 
-#### 3.对象属性增加getter\setter
-
 #### 4.函数----function
 
 > - Function.prototype.bind(obj)
@@ -27,3 +27,6 @@
 >   -   call:   ...params
 >   - apply:  params[]
 
+#### 5.*instanceof* 运算符
+
+- 用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
