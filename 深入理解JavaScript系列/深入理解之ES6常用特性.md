@@ -28,16 +28,29 @@
 
 #### 10.字符串拓展
 
-- includes(str) : 判断是否包含指定的字符串
-- startsWith(str) : 判断是否以指定字符串开头
-- endsWith(str) : 判断是否以指定字符串结尾
-- repeat(count) : 重复指定次数
+- [includes]()(str) : 判断是否包含指定的字符串
+- [startsWith]()(str) : 判断是否以指定字符串开头
+- [endsWith]()(str) : 判断是否以指定字符串结尾
+- [repeat]()(count) : 重复指定次数
 
 #### 11.Array拓展
 
-- findIndex(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素下标
-- find(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素
+- [findIndex]()(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素下标
+- [find]()(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素
 
 #### 12.对象拓展
 
-- Object.assign(target, source1, source2..)：将源对象的属性复制到目标对象上
+- [Object.assign]()(target, source1, source2..)：将源对象的属性复制到目标对象target上 
+
+  ```js
+  const target = { a: 1, b: 2 };
+  const source = { b: 4, c: 5 };
+  
+  const returnedTarget = Object.assign(target, source);
+  
+  console.log(target);
+  // expected output: Object { a: 1, b: 4, c: 5 }
+  ```
+
+  
+
