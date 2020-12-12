@@ -3,19 +3,35 @@
 ### 终端
 
 - 用户路径	～
+
 - 历史路径    —
+
 - 分区路径    /Vo
+
 - 各种方法   
+
   - open   rm   mv    mkdir    c p
 
-#### Mac使用技巧
+  #### 详细的终端命令
+
+  - r 只读 ，  r+  读写
+  - w 只写，w+ 读写   若文件不存在就新建
+  - a 以方式打开文件      例如 open -a  webstorm ./文件夹
+
+  ####  Vim设置alias（暂时不用）
+
+  - 第一步打开base config        vim ~/.bashrc
+  - Add  line            alias   ws='open -a  webstorm'
+  - Source     source   ~/.bashrc
+
+### Mac使用技巧
 
 - 强制退出  command + Q  或者  alt + command + esc 
 - 生词。 shift + 空格键
 - 自定义工具     
 - 剪贴板。    command +  shift  +  v
 
-#### webstorm
+### webstorm
 
 - 光标回到上次。                 command + alt  +  <—   —> 
 - 选择所有相同的变量         command +   control   +  g   
