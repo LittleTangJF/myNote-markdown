@@ -92,13 +92,17 @@ git push -f -u origin maste
  - 修改了一个复杂的index.vue文件，修改之后觉得自己写得乱糟糟的，没有一丝头绪，但这个修改文件**未提交**，我想恢复到它最开始的样子。
 
  1. git checkout -- 文件完整路径（好像不加--这两个横线也能使）
+  2. git checkout .   撤销对suo y
+  3. 
 
 
 
 #### 三、 代码被覆盖问题
 
- 1. git  log 或者git  log  --stat                        找到最近一次提交
- 2. git   reset  -- hard    commit编码            回到commit编码的那一次提交
+  1. git  log 或者git  log  --stat    或者git reflog                  找到最近一次提交
+       1. git reflog      查看所有的提交记录
+       2. git log -5 --pretty=oneline    简化显示log
+  2. git   reset  -- hard    commit编码            回到commit编码的那一次提交
 
 #### 四、pull冲突，回到冲突前的状态
 
@@ -106,13 +110,13 @@ git push -f -u origin maste
 
 #### 五、 撤销commit 
 
- 1. git  reset --soft  HEAD^           
+ 1. ###### git  reset --soft  HEAD^  ^^两个版本  ^^^ 三个版本 类推          
 
  - HEAD^的意思是上一个版本，也可以写成HEAD~1
 
    如果你进行了2次commit，想都撤回，可以使用HEAD~2
 
-   - --mixed      不删除工作空间改动代码，撤销commit，并且撤销git add . 操作    =git  reset  HEAD^
+   - --mixed      不删除工作空间改动代码，撤销commit，并且撤销git add . 操作    =>**git  reset  HEAD^**
    - --soft     不删除工作空间改动代码，撤销commit，不撤销git add . 
    - --hard     删除工作空间改动代码，撤销commit，撤销git add . 
 

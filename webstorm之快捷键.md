@@ -1,2 +1,12 @@
 - Alt  +  shift   +    G    多行编辑
 - Alt  +   F12   终端
+- command + l 跳转行
+- /**  + enter  注释
+- command + alt + l  格式化代码
+- control + shift +  j   格式化-单行变
+- command + shift + u  大小写转换 -> toUpCase()
+- command + alt + <--/-->  切换到上次光标处
+- command + shift + delete 切换到上次编辑处
+- command  +  【/】 光标现在的位置和之前的位置切换
+- comand + G 查找下一个  command + shift + G 查找上一个
+
