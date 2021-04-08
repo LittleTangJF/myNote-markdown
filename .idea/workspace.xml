@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d2ad288c-82ab-423b-bc39-934669f44e6a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/面试题/Javascript-常问.md" beforeDir="false" afterPath="$PROJECT_DIR$/面试题/Javascript-常问.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +12,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
   </component>
   <component name="ProjectId" id="1lJk0d1ye2jCO67pcW9xsFG0Kcw" />
   <component name="ProjectViewState">
@@ -36,10 +40,22 @@
       <workItem from="1607322363196" duration="44000" />
       <workItem from="1607597334041" duration="774000" />
       <workItem from="1607757712696" duration="279000" />
+      <workItem from="1616981957465" duration="1412000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
