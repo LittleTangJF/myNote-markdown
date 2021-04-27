@@ -158,7 +158,16 @@
   devtool： false //production
   ```
 
-## 原理
+## 原理 
+
+[地址](https://www.jianshu.com/p/8dd5885bfb66)
+
+1. 初始化
+   1. 加载plugin 、 实例化Complier
+2. 编译
+   1. 从entry出发，每个**Module**串行**调用对应的Loader**去翻译文件内容，再找到该Module依赖的Module，递归地进行编译处理。
+3. 输出
+   1. 编译后的Module组合成**Chunk**，把Chunk转换成**文件**，输出到文件系统。
 
 ​		[Webpack]()会根据我们的配置找到其中的一个文件作为打包的入口，一般情况下这个文件都是JavaScript文件，然后会顺着我们入口文件当中的代码，根据代码中出现的import或者是像reuqire之类的语句解析推断出来这个文件所依赖的资源模块，然后分别去解析每个资源模块对应的依赖，最后就形成了整个项目当中文件依赖关系的关系树，
 
