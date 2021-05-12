@@ -1,3 +1,26 @@
+
+
+## Router
+
+http://shanhuxueyuan.com/news/detail/137.html
+
+hash路由  onhashchange
+
+history  window.history
+
+## Vue框架
+
+### 初次渲染
+
+- compile解析模板-->render函数
+- 触发响应式，监听data属性的getter属性收集，就是往dep订阅器里添加watcher的过程
+- 执行render函数，生成v node，patch
+
+### 更新
+
+- 修改data属性触发setter调用dep里的notify(),通知他内部所有的watcher进行视图更新
+- 重新执行render函数，生成newVnode -->patch
+
 ## React 的 diff 算法工作过程
 
 **传统Diff**
@@ -10,13 +33,15 @@
 
 ​	**策略**
 
-​			1、只同级比较
+​			1、**同层节点**之间相互比较，不会垮节点比较
+
+​			2、发现不同直接跳出比较
 
 ​			2、不同类的组件会直接替换
 
 ​			3、唯一标识key
 
-​	**过程**----React更新阶段
+​	**过程**----React更新阶段 **render函数生成虚拟Dom** diff算法计算出差异更新
 
 ​			1、文本：text节点的更新很简单，直接更新文案
 
@@ -24,7 +49,10 @@
 
 ​			3、组件: 不同类的组件会直接替换
 
+## React为什么组件是大写
 
+1. 区分于html标签写法
+2. React.createElement(type， config， children) babe转义 type是一个变量--组件， 否则当成字符串
 
 ## React 的事件机制
 
@@ -32,9 +60,9 @@
 
 ​	**和原生事件的区别**
 
-​				1、合成事件全部委托到document上，而原生事件绑定到DOM元素本身
+​				1、合成事件**全部委托到document**上，而原生事件绑定到**DOM元素**本身
 
-​				2、写法不同，合适事件是驼峰写法
+​				2、写法不同，合成事件是**驼峰写法**
 
 ​	**为什么手动绑定this**
 
@@ -72,6 +100,24 @@
 ​		 2、 vue 是一个 framework，它更加注重的是框架，react 是一个 library，不负责工具链的事情
 
 ​		 3、Vue 是响应式的，React 是手动setState
+
+## React优化
+
+[地址](https://segmentfault.com/a/1190000016259872)
+
+1、code split 拆包
+
+2、shouldComponentUpdate -----Hooks`组件则可以使用`React.memo
+
+3、动态import
+
+4、组件拆分解耦
+
+5、bind函数优化
+
+6、不要滥用props引起的重绘
+
+7、列表类组件优化
 
 ## React 中组件复用
 
@@ -230,4 +276,28 @@
   }
   ```
 
-  
+## Redux
+
+[地址](https://github.com/xuwening/blog/blob/193057c0c08b79e1fb03d500d1c28b4564e5d8f3/mdFile/redux%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90.md)
+
+redux 有三个核心概念：
+
+1. Action **更新** Store 的具体单元。
+
+2. Reducer 是**改变** Store 的唯一方式，指明如何更新 Store。
+
+3. Store 是所有的状态数据，对用户来说是**只读**的，不可改变。
+
+   ​     redux 只做状态管理，不做View的处理，因此 redux 需要配合其他框架一起使用，本章使用的 View 框架是 React。
+
+了解了 redux 的实现机制，你会发现 redux存在一些问题。
+
+1. redux 存在性能问题。js 是单线程的，每次 dispatch 都是遍历执行立即更新 state，会造成卡顿。
+2. redux 重复性代码依然多，每个页面都需要处理 subscribe 和 dispatch。
+3. redux 增加了代码复杂性，但针对复杂项目，这种代价是值得的。
+
+`applyMiddleware`和`bindActionCreators`。
+
+返回 actions 的函数中就用到了`bindActionCreators`，用来自动执行 dispatch(action)功能。
+
+在 Provider 和 CounterApp 之间动态插入了 **Connect 组件**。至此，我们只要建立 redux 和 react 的关联，将 Action 与 view 事件绑定，其他都可以自动化了。
