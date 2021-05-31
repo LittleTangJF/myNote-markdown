@@ -1,4 +1,110 @@
+## VUE和REACT的区别
 
+- 相同点：
+  - 都支持服务端渲染
+  - 都有虚拟DOM，组件化开发，通过props进行父子通信
+  - 数据驱动视图
+
+- 不同：
+  - react是MVC（**单向数据流**），Vue是MvvM（**双向绑定**）
+
+    ​	MVVM: Model和ViewModel是双向的，视图的数据会改变数据源
+
+    ​	MVC：controler逻辑处理层-->Model数据持久化 --> View数据反馈给视图 
+
+  - 虚拟DOM渲染不同，react会重新渲染，而Vue根据依赖关系部分渲染
+
+  - 写法不同，react采用jsx,即写在JS内，Vue则分离出来
+
+   - react中state不可变，用setState改变，Vue则是在data对象内统一管理
+
+   - 操作dom的方式不同，vue使用的是指令操作dom，react是通过js进行操作。
+
+   - react中state是不能直接改变的，需要使用setState改变。vue中的state不是必须的，数据主要是由data属性在vue对象中管理的。
+
+## React
+
+1. ### Q生命周期
+
+   分为三个阶段**挂载过程、更新过程、卸载**过程
+
+   <img src='https://upload-images.jianshu.io/upload_images/16775500-8d325f8093591c76.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/740/format/webp' style='zoom:0.6'/>
+
+   ### 挂载过程
+
+   #### 1.1 constructor 初始化---要使用了constructor()就必须写super(),否则会导致this指向错误
+
+   #### 	1.11 static getDerivedStateFormProps() 16.3新增周期
+
+   #### 1.2 componentWillMount 初始化数据后，但是还未渲染DOM时
+
+   #### 1.3 componentDidMount() 此时dom节点已经生成 ---ajax请求
+
+   ### 卸载过程
+
+   #### 3.1 componentWillUnmount () 完成组件的卸载和数据的销毁 ---clear time removeEventListener
+
+   1. 遇到问题--在请求中setState销毁时请求未完成，可以设置一个标识符this.isMount = true
+
+   ### 更新过程
+
+   #### 2.1 componentWillReceiveProps (nextProps) ----通过对比nextProps和this.props
+
+   - 给你更新state的机会，***在该函数中调用 this.setState() 将不会引起第二次渲染。\***
+     - ***注意：\***
+       当父组件向子组件传递引用类型（或复合类型，比如对象、数组等）的属性时，要注意打印的this.props和nextProps的内容是一致的，因为引用类型在内存中只有一份，传值时是浅拷贝
+     - **弊端**： 父元素的render函数被调用，子组件就会触发componentWillReceiveProps。不管props有没有改变。
+
+   - 优化方案：**1.完全受控组件（推荐）** **2.key标识的完全不可控组件（推荐）** 使用React的key属性。通过传入不同的key来重新构建组件。 **4.使用实例方法重置非受控组件 this.inputRef.current。**
+
+     
+
+   #### 2.2.shouldComponentUpdate(nextProps,nextState) ---性能优化
+
+   #### 2.3 componentWillUpdate (nextProps,nextState)
+
+   #### 	2.35 render()
+
+   #### 2.4 componentDidUpdate(prevProps,prevState)--react只会在第一次初始化成功会进入componentDidmount,之后每次重新渲染后都会进入这个生命周期，这里可以拿到prevProps和prevState，即更新前的props和state。
+
+   #### 2.5 render()
+
+   1. render函数会插入jsx生成的dom结构，react会生成一份虚拟dom树，在每一次组件更新时，在此react会通过其diff算法比较更新前后的新旧DOM树，比较以后，找到最小的有差异的DOM节点，并重新渲染。
+
+### 2、Q为什么有时连续多次setState只有一次生效？
+
+React源码中的 `_assign`函数，类似于 `Object`的 `assign`
+
+1. 传入一个函数，非对象，state作为参数
+
+   ```js
+   componentDidMount() {
+       this.setState((state, props) => ({
+           index: state.index + 1
+       }), () => {
+         console.log(this.state.index);
+       })
+       this.setState((state, props) => ({
+           index: state.index + 1
+       }), () => {
+         console.log(this.state.index);
+       })
+   }
+   ```
+
+   
+   
+   ### 3、React Hooks
+   
+   ​	3.1 useEffect：你可以把 `useEffect` Hook 看做 `componentDidMount`，`componentDidUpdate` 和 `componentWillUnmount` 这三个函数的组合。
+   
+   ### 4、刷新页面方法
+   
+   1. Windows.location.href
+   2. Windows.location.reload()
+   3. **this.forceUpdate()**;直接调用render() 
+   4. setState() 总是触发一次重绘
+   5. **this.setProps()**仅在根组件上面调用
 
 ## Router
 
@@ -72,6 +178,14 @@ history  window.history
 
 ## React 中的 setState 是同步还是异步
 
+其实setState并没有异步的说法，之所以会有一种异步方法的表现形式，归根结底还是因为react框架本身的性能机制所导致的
+
+获取最新数据 ---同步
+
+1. 回调函数
+2. setTimeout 
+3. 原生的环境
+
 **异步**
 
 ​		1、合成事件
@@ -125,26 +239,38 @@ history  window.history
 
 **高阶组件（HOC）**
 
-​		定义：如果一个组件 接受一个或多个组件作为参数并且返回一个组件 就可称之为 高阶组件
+​		定义：**一个高阶组件只是**一个包装了另外一个 React 组件的 **React 组件**，**高阶组件就是接收一个组件，然后返回一个新组件**
+
+​		实质：实质就是通过包裹原来的组件来操作props----这样我们就获得了props的控制权
+
+​		本质：这种形式通常实现为一个函数，是一个类工厂（class factory）
+
+​		作用：1、将不受控组件(WrappedComponent)成功的转变为受控组件.
+
+​					2、反向继承：反向继承是指返回的组件去继承之前的组件
+
+​					3、渲染劫持
+
+​					4、而高阶组件返回的组件会在原来的组件之上具有功能增强的效果。
 
 1. ```js
-   import React from 'react';
-   
-   function withCounter(Component) {
-     return class extends React.Component {
-       state = { number: 0 };
-       componentDidMount() {
-         setInterval(() => {
-           this.setState({ number: this.state.number + 1 });
-         }, 1000);
-       }
+   import React, { Component } from 'react'
+    
+   const HOC = (WrappedComponent) =>
+     class WrapperComponent extends Component {
        render() {
-         return (
-           <Component number={this.state.number} />
-         )
+         return <WrappedComponent {...this.props} />;
        }
-     }
    }
+   //普通的组件
+   class WrappedComponent extends Component{
+       render(){
+           //....
+       }
+   }
+   //高阶组件使用
+   export default HOC(WrappedComponent)
+   
    ```
 
    
@@ -175,29 +301,6 @@ history  window.history
    
 
 ## React 的 Fiber 架构
-
-**16.8版本之前**
-
-​	挂载阶段：
-
-- `constructor()`
-- `componentWillMount()`
-- `render()`
-- `componentDidMount()`
-
-更新阶段：
-
-- `componentWillReceiveProps()`
-- `shouldComponentUpdate()`
-- `componentWillUpdate()`
-- `render()`
-- `componentDidUpdate`
-
-卸载阶段：
-
-- `componentWillUnmount()`
-
-
 
 **任务分片**也就是 16 ms 必须渲染一次保证不卡顿的情况下，React 会每 16 ms（以内） 暂停一下更新，返回来继续渲染动画。----------潜水员会每隔一段时间就上岸，看是否有更重要的事情要做。**phase1的生命周期函数**
 

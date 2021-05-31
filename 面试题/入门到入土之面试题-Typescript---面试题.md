@@ -1,14 +1,12 @@
 ## 索引类型
 
-#### 		索引类型查询操作符 ( keyof )
+- #### 		索引类型查询操作符 ( keyof )
 
-索引访问操作符 ( T[K] )
+  索引访问操作符 ( T[K] )
 
-### 		例子
+  ### 		例子实现一个 ts 的工具函数 `GetOnlyFnProps<T>` 
 
-​		实现一个 ts 的工具函数 `GetOnlyFnProps<T>` 
-
-- ​		
+- ​	
 
   ```tsx
   type GetOnlyFnKeys<T extends object> = { // T是对象
@@ -29,7 +27,9 @@
   }
   ```
 
-  
+- ### 元组
+
+  - 简介：
 
 
 
