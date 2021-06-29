@@ -125,9 +125,14 @@ history  window.history
 ### 更新
 
 - 修改data属性触发setter调用dep里的notify(),通知他内部所有的watcher进行视图更新
+
 - 重新执行render函数，生成newVnode -->patch
 
-## React 的 diff 算法工作过程
+  ### vue生命周期
+
+  <img src='https://cn.vuejs.org/images/lifecycle.png' style="zoom: 33%;" />
+
+##  React 的 diff 算法工作过程
 
 **传统Diff**
 

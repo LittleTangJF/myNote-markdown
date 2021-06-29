@@ -75,7 +75,15 @@
 
     ​		document.cookie = key "=" value "; " expires; ------- string
 
-- ### 最简单的继承
+- ### 寄生组合的继承
+
+  - call去执行父类 Parent.call(student, arg)
+
+  - 子类实例的原型prototype等于父类的实例new Parent
+
+    解析：在 stu1 = new Student() 构造函数时，Student 内部 this 的值指向的是 stu1, 所以 **this**.stuID =**stu1**.stuID, 所以 Person.call(**this**, name, age) 就相当于Person.call(**stu1**, '王宝宝', 20)，就相当于 stu1.Person('王宝宝',20)。最后，stu1 去调用 Person 方法时，Person 内部的 this 指向就指向了 stu1。那么Person 内部this 上的所有属性和方法，都被拷贝到了stu1上。说到这里，大家应该清楚一点点了吧。
+
+    https://www.cnblogs.com/ranyonsue/p/11201730.html
 
 - ### 如何把es6的class转换为es5的类
 

@@ -19,7 +19,13 @@
     ```
 
 - Source  ~/.zshrc
+
 - curl cip.cc     查看IP
+
+## mac- SSH
+
+1. 1、cd ~/.ssh 
+2. cat id_rsa.pub
 
 ## Mac-环境安装
 
@@ -70,13 +76,11 @@
 
   - open   rm   mv    mkdir    c p
   - mv     dist/*  .   移动dist文件下所有文件到当前目录
-  
 #### 详细的终端命令
 
   - r 只读 ，  r+  读写
   - w 只写，w+ 读写   若文件不存在就新建
 - a 以方式打开文件      例如 open -a  webstorm ./文件夹
-  
 ####  Vim设置alias（暂时不用）
 
   - 第一步打开base config        vim ~/.zshrc
@@ -119,6 +123,10 @@
 - `p` → 粘贴剪贴板
 - `yy` → 拷贝当前行当行于 `ddP`
 - `:q!` → 退出不保存 `:qa!` 强行退出所有的正在编辑的文件，就算别的文件有更改。
+
+## Mac-破解类
+
+[地址](http://www.sdifen.com/8136/)
 
 ## Mac-录屏
 
