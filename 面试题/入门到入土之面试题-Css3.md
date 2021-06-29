@@ -11,6 +11,30 @@
     - vertical-align: middle;可以居中
     - 可以设置w|h|padding|margin
 
+- **BFC  Block Formatting Contexts块级格式化上下文**
+
+  - 特点
+    - 独立容器
+    - 独特的特性
+      - 容器下margin上下边距重叠
+      - 包含浮动元素-清除浮动
+      - 避免被浮动元素覆盖
+  - 触发
+    -  根元素
+    - 浮动元素：float 除 none 以外的值
+    - 绝对定位元素：position (absolute、fixed)
+    - display 为 inline-block、table-cells、flex
+    - overflow 除了 visible 以外的值 (hidden、auto、scroll)
+
+- **css样式隔离**
+
+  - 严格的命名规范（不能完全避免）
+  - CSS Modules
+    - import引入使用类名属性，然后打包会自动将类名转换成 hash 值
+    - 打包：配置css-loader打包加上hash值
+  - CSS In JS
+    - react中使用的styled-components：就是将css用js的方式写
+
 - #### 清除浮动原理[视频](https://www.bilibili.com/video/BV1h54y1D7rb?from=search&seid=17512387739467067458)
 
   - 原理：当容器高度auto,其内容有浮动的元素，这样容器就不会自动伸长适应。
@@ -21,6 +45,7 @@
     - float: 不为none
     - overflow: 不是visible(不设置浮动元素会溢出)
     - display: inline-block(解决外边距塌陷)/flex
+  
 - #### 居中显示
 
   - 绝对定位
